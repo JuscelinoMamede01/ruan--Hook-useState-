@@ -20,16 +20,16 @@ export const Card = () => {
   };
 
   return (
-    <div className="w-full bg-gray-900 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 p-10 rounded">
+    <div className="w-full bg-gray-900 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 p-10 rounded">
       {CardData.map((card: Card) => (
         <div key={card.id} className="relative">
           {/* front */}
           <div
-            className={`min-w-[250px] h-96 bg-slate-300 rounded flex flex-col justify-center items-center p-4 transform ${
+            className={` h-96  bg-slate-300 rounded flex flex-col justify-center items-center p-4 transform ${
               flippedCard?.id === card.id ? "rotate-y-180" : ""
             }`}
           >
-            <h3 className="text-gray-800 text-lg font-bold mb-2">
+            <h3 className="text-gray-800  lg:text-lg font-bold mb-2">
               {card.expression}
             </h3>
             <button
@@ -42,13 +42,13 @@ export const Card = () => {
           {/* back */}
           <div
             key={card.id}
-            className={`absolute inset-0 min-w-[250px] bg-yellow-300 rounded flex justify-center items-center flex-col p-4 transform rotate-y-180 backface-visibility-hidden ${
+            className={`absolute inset-0  max-h-96  bg-yellow-300 rounded flex justify-center items-center flex-col p-4 transform rotate-y-180 backface-visibility-hidden ${
               flippedCard?.id === card.id ? "" : "hidden"
             }`}
           >
-            <div className="border-solid border-2 border-black rounded px-4 text-left ">
+            <div className="max-h-96 overflow-auto border-solid border-2 border-black rounded px-4 text-left ">
               <p>
-                <span className="font-bold">Tradução:</span> {card.translation}
+                <span className="font-bold ">Tradução:</span> {card.translation}
               </p>
               <p>
                 <span className="font-bold">Dica:</span> {card.tip}
